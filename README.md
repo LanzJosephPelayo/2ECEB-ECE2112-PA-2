@@ -19,12 +19,12 @@ And normalize the array using the standard score formula. Store the normalized a
 
 The following methods were used in this problem to create a unique function:
 
-• `.mean()` = A built-in function in numpy that automatically takes the average or mean value from an list or an array without manually calculating the mean through hard code.
+• `np.mean()` = A built-in function in numpy that automatically takes the average or mean value from an list or an array without manually calculating the mean through hard code.
 
 Example: 
 `
 X = [ 10, 20, 30, 40, 50]
-X.mean() = 30.0
+np.mean(X) = 30.0
 `
 
 • `np.std()` = A built-in function in the Numpy library that automatically shows how much the numbers within the dataset or array are spread out or far from the mean.
@@ -36,7 +36,7 @@ mean =  X.mean() #---> 6.0
 standard deviation #--->  2.83
 `
 
-With the use of `.mean()` and `np.std()`  ,this allows the author to take the mean and standard deviation of the random 5X5 array much more quickly instead 
+With the use of `np.mean()` and `np.std()`  ,this allows the author to take the mean and standard deviation of the random 5X5 array much more quickly instead 
 of hardcoding it. It also allows the author to formulate and create the normalized array by utilizing the two functions to calculate its normalized value
 or z-score. Afterward, It allows to show the mean and it's standard deviation of the normalized values
 
@@ -45,8 +45,8 @@ import numpy as np
 np.random.seed(2112)
 X = np.random.randint(10, 101, size=(5, 5))
 
-X_normalized = (X-(X.mean()))/(np.std(X)) #---> Used the mean and standard deviation functions to calculate the random 5x56array's mean and standard deviation
-print("Required Check #A.3:\n", "Mean of Normalized 5X5 Array Integer:", X_normalized.mean()) # --> Prints the mean of the normalized array data set which is shown to be 0 in the notebook.
+X_normalized = (X-(np.mean(X)))/(np.std(X)) #---> Used the mean and standard deviation functions to calculate the random 5x56array's mean and standard deviation
+print("Required Check #A.3:\n", "Mean of Normalized 5X5 Array Integer:", np.mean(X_normalized)) # --> Prints the mean of the normalized array data set which is shown to be 0 in the notebook.
 print("Required Check #A.4:\n", "Standard Deviation of Random 5X5 Array Integer:", np.std(X_normalized))  Prints the Standard Deviation of the normalized array data set, which is shown to be 0.999... or 1 in the notebook.
 ```
 
@@ -113,7 +113,7 @@ between the datasets.
 
 • `.reshape()` = A built-in function in Numpy that allows us to arrange or rearrange the array dataset into another format as long as it has the same elements.
 
-• `.mean()` = A built-in function in numpy that automatically takes the average or mean value from an list or an array without manually calculating the mean through hard code.
+• `np.mean()` = A built-in function in numpy that automatically takes the average or mean value from an list or an array without manually calculating the mean through hard code.
 
 • Boolean Indexing =  A built-in function in Numpy that allows taking elements or values from a dataset under specific conditions
 
@@ -121,14 +121,13 @@ between the datasets.
 
 With the functions mentioned, the author was able to create the program for the said problem. Using `np.arange`, it allowed the author to create the 
 dataset of the first 36 positive integers, where he squared it immediately while also using the `.reshape()`to make it as an 6x6 array.
-Next, the `.mean` allows us to create a value of the mean with the squared dataset S, and stored in S_mean, which is later used for the boolean indexing, where it was used to extract the elements in the S data dataset that are above the mean value from the S_mean and stored in a variable called above_mean.
+Next, the `np.mean()` allows us to create a value of the mean with the squared dataset S, and stored in S_mean, which is later used for the boolean indexing, where it was used to extract the elements in the S data dataset that are above the mean value from the S_mean and stored in a variable called above_mean.
 Lastly, the `.size` function tells how many elements are in the above_mean variable.
 
-```
-python
+```python
 S = (np.arange(1,37,1)**2).reshape(6,6) #--> Creates the dataset by forming the first 36 positive integers and then squaring them immediately
 reshaped it a 6x6 array.
-S_mean = S.mean() #--> Takes the mean of the array S.
+S_mean = np.mean(S) #--> Takes the mean of the array S.
 above_mean = S[S > S_mean] #--> Takes the values that are above the mean from the s_mean
 above_mean.size #--> takes the size of the elements from the values that is above the mean
 ```
@@ -136,3 +135,4 @@ Thank you for Reading!
 
 Version History
 9/2/2026 - Uploaded Content
+9/3/2026 - Replaced .mean() to np.mean()
